@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block customcss %}
+    <link rel="stylesheet" href="{% static 'css/signup.css' %}">
+{% endblock customcss %}
+{% block content %}
+<div class="content">
+<main>
+<div class="container">
+<h1>サインアップ</h1>
+    <form action="" method="post">
+    <br>
+    {{ form.non_field_errors }}
+    {% for field in form %}
+    <p>{{ field.label}}</p>
+    {{ field }}
+    {{ field.errors }}
+    <br>
+    {% endfor %}
+    <br>
+    <button type="submit" class="btn btn btn-primary" >登録してログイン</button>
+    <input type="hidden" name="next" value="{{ next }}" />
+    {% csrf_token %}
+    </form>
+    <br>
+    <br>
+    <br>
+    <br>
+</div>
+</main>
+</div>
+{% endblock content %}
